@@ -152,7 +152,7 @@ def train(args):
             print(msg)
 
             iter+=1
-        if (e+1) % params['model_save_interval'] == 0 and e > 0:
+        if (e+1) % params['model_save_interval'] == 0 and e >= 0:
             model_save_dir = os.path.join(params['model_save_dir'], params['exp_name'])
             if os.path.exists(model_save_dir) == False:
                 os.makedirs(model_save_dir)
