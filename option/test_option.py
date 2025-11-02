@@ -10,7 +10,7 @@ def get_train_options():
     opt['dataset_dir'] = os.path.join(opt["project_dir"],"Patches_noHole_and_collected.h5")
     opt['isTrain']=False
     opt['batch_size'] = 1
-    opt["patch_num_point"]=1024
+    opt["patch_num_point"]=256
     opt['lr_D']=1e-4
     opt['lr_G']=1e-3
     opt['emd_w']=100.0
