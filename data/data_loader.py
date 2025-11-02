@@ -10,7 +10,7 @@ class PUNET_Dataset_Whole(data.Dataset):
     def __init__(self, data_dir='../MC_5k',n_input=1024):
         super().__init__()
         self.raw_input_points=5000
-        self.n_input=1024
+        self.n_input=256
 
         file_list = os.listdir(data_dir)
         self.names = [x.split('.')[0] for x in file_list]
@@ -40,14 +40,14 @@ class PUNET_Dataset(data.Dataset):
 
         self.isTrain=isTrain
 
-        self.npoint = npoint
+        self.npoint = 256
         self.use_random = use_random
         self.use_norm = use_norm
 
         h5_file = h5py.File(h5_file_path)
-        self.gt = h5_file['poisson_4096'][:]  # [:] h5_obj => nparray
-        self.input = h5_file['poisson_4096'][:] if use_random \
-            else h5_file['montecarlo_1024'][:]
+        self.gt = h5_file['poisson_1024'][:]  # [:] h5_obj => nparray
+        self.input = h5_file['poisson_1024'][:] if use_random \
+            else h5_file['montecarlo_256'][:]
         assert len(self.input) == len(self.gt), 'invalid data'
         self.data_npoint = self.input.shape[1]
 
