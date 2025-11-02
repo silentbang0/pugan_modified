@@ -38,7 +38,7 @@ def train(args):
     start_t=time.time()
     params=get_train_options()
     params["exp_name"]=args.exp_name
-    params["patch_num_point"]=1024
+    params["patch_num_point"]=256
     params["batch_size"]=args.batch_size
     params['use_gan']=args.use_gan
 
